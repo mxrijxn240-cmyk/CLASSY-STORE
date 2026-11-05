@@ -26,13 +26,37 @@ export type CollectionSetting = {
   id: CollectionId;
   title: string;
   label: string;
+  subtitle: string;
   imageUrl: string;
 };
 
 export type HomeSettings = {
-  hero: { title: string; titleAccent: string; tagline: string; ctaLabel: string; imageUrl: string };
+  hero: {
+    kicker: string;
+    title: string;
+    titleAccent: string;
+    copy: string;
+    tagline: string;
+    ctaLabel: string;
+    imageUrl: string;
+  };
+  statement: {
+    kicker: string;
+    title: string;
+    titleAccent: string;
+    copy: string;
+  };
+  collection: {
+    kicker: string;
+    title: string;
+    titleAccent: string;
+    copy: string;
+    ctaLabel: string;
+    imageUrl: string;
+  };
   banner: { enabled: boolean; message: string; linkLabel: string };
   collections: CollectionSetting[];
+  editTitle: string;
   justInTitle: string;
 };
 
@@ -47,39 +71,56 @@ const heroImageDefault = 'https://images.pexels.com/photos/30109292/pexels-photo
 
 export const defaultSiteSettings: SiteSettings = {
   theme: {
-    primary: '#DB9F75',
-    primaryLight: '#DB9F75',
-    background: '#122D2A',
-    surface: '#2F3A32',
-    panel: '#3E2411',
-    text: '#F3EBDD',
-    muted: '#D6CEBE',
-    buttonBg: '#DB9F75',
-    buttonText: '#3E2411',
-    buttonRadius: 0,
-    fontDisplay: 'Playfair Display',
-    fontBody: 'Inter',
+    primary: '#CCD0CF',
+    primaryLight: '#FFFFFF',
+    background: '#06141B',
+    surface: '#11212D',
+    panel: '#253745',
+    text: '#CCD0CF',
+    muted: '#9BA8AB',
+    buttonBg: '#CCD0CF',
+    buttonText: '#06141B',
+    buttonRadius: 4,
+    fontDisplay: 'Space Grotesk',
+    fontBody: 'Plus Jakarta Sans',
   },
   branding: {
     logoUrl: logoDefault,
-    faviconUrl: '',
+    faviconUrl: logoDefault,
   },
   home: {
     hero: {
-      title: 'A little world',
-      titleAccent: 'of cars.',
-      tagline: 'Made for collectors.',
-      ctaLabel: 'Explore Collections',
-      imageUrl: heroImageDefault,
+      kicker: 'PREMIUM CAR MINIATURES & WALL FRAMES',
+      title: 'DETAILED MODEL CARS &',
+      titleAccent: 'FRAMES FOR CAR LOVERS.',
+      copy: 'We sell super-detailed metal miniature cars (with opening doors & real rubber tires) and custom framed cars ready to hang on your wall. The ultimate room decor or gift for anyone who loves cars.',
+      tagline: 'Made for anyone who loves cars.',
+      ctaLabel: 'Shop All Models',
+      imageUrl: 'https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=1600&q=85',
     },
-    banner: { enabled: false, message: '', linkLabel: 'Shop now' },
+    statement: {
+      kicker: 'WHY PEOPLE LOVE THESE',
+      title: 'BRING YOUR DREAM CARS',
+      titleAccent: 'INTO YOUR ROOM.',
+      copy: 'Whether you want a heavy metal Porsche or Ferrari on your study desk, or an iconic race car framed on your bedroom wall, CLASSY brings automotive passion to life in high quality miniatures.',
+    },
+    collection: {
+      kicker: 'FEATURED WALL ART',
+      title: 'REAL MINI CARS',
+      titleAccent: 'INSIDE WALL FRAMES.',
+      copy: 'Want something way cooler than a paper poster? We mount real detailed miniature cars inside sleek wooden glass frames with the car’s top speed, engine specs, and history printed behind it. Ready to hang right out of the box.',
+      ctaLabel: 'Explore Car Frames',
+      imageUrl: '/images/WhatsApp_Image_2026-11-04_at_7.03.42_PM.jpeg',
+    },
+    banner: { enabled: true, message: '⚡ PAN-INDIA DELIVERY — SAFELY PACKED IN SHOCKPROOF BOXES SO YOUR CAR ARRIVES IN PERFECT SHAPE', linkLabel: 'Shop Now' },
     collections: [
-      { id: 'diecast', title: 'Diecast Car', label: 'Precision models', imageUrl: 'https://images.pexels.com/photos/6789979/pexels-photo-6789979.jpeg?auto=compress&cs=tinysrgb&h=650&w=940' },
-      { id: 'car-frame', title: 'Car Frame with Diecast', label: 'Display with presence', imageUrl: 'https://images.pexels.com/photos/35930288/pexels-photo-35930288.jpeg?auto=compress&cs=tinysrgb&h=650&w=940' },
-      { id: 'frame', title: 'Frame', label: 'Wall art', imageUrl: 'https://images.pexels.com/photos/7877826/pexels-photo-7877826.jpeg?auto=compress&cs=tinysrgb&h=650&w=940' },
-      { id: 'limited-edition', title: 'Limited Edition Car', label: 'Rare finds', imageUrl: 'https://images.pexels.com/photos/34126352/pexels-photo-34126352.jpeg?auto=compress&cs=tinysrgb&h=650&w=940' },
+      { id: 'diecast', title: 'Detailed Metal Cars', label: 'Doors Open · Solid Metal', subtitle: 'Heavy metal scale cars with opening doors, hood, working steering, and realistic interiors', imageUrl: 'https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=1000&q=80' },
+      { id: 'car-frame', title: 'Car Wall Frames', label: 'Ready to Hang on Wall', subtitle: 'An actual miniature car mounted inside a glass frame with car specs printed behind it', imageUrl: '/images/WhatsApp_Image_2026-11-04_at_7.03.42_PM.jpeg' },
+      { id: 'limited-edition', title: 'Rare Collector Cars', label: 'Hard-to-Find Models', subtitle: 'Special edition model cars for enthusiasts and collectors with numbered display stands', imageUrl: 'https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1000&q=80' },
+      { id: 'frame', title: 'Car Art & Panels', label: 'Room & Office Decor', subtitle: 'Clean automotive technical prints and race track wall pieces designed for modern rooms', imageUrl: '/images/WhatsApp_Image_2026-11-04_at_7.03.42_PM_(1).jpeg' },
     ],
-    justInTitle: 'Just in',
+    editTitle: 'Popular Cars & Frames',
+    justInTitle: 'Fresh Stock',
   },
 };
 
